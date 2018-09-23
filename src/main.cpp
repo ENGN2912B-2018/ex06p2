@@ -22,9 +22,8 @@ int main(int nargc, char* argv[])
 	// populate array with the Fibonacci sequence up to N
 	fibonacci(x,N);
 	
-	// display contents of sequence (using range-based for loop:  c++11)
+	// display contents of sequence
 	for (unsigned int n=0; n < N; n++){
-//	for (unsigned int &n : *x) {
 		cout << "x[" << n << "] = " << x[n] << endl;
 	}
 
