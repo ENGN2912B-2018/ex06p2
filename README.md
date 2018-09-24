@@ -4,7 +4,7 @@ This example shows how to separate multiple functions into a separate library.  
 
 ## Generate a statically linked library
 
-Functions refererenced by a program to a statically linked library are resolved at compile time.  In Linux, static libraries contain the name `lib<name>.a`.
+Functions refererenced by a program to a statically linked library are resolved at compile time.  In Linux, static libraries contain the name `lib<name>.a`.  In Windows, static libraries are named `<name>.lib`.
 
 To build both the main executable and static library, run the following commands:
 
@@ -36,5 +36,12 @@ Another option for building an application that uses a library is to use a dynam
 
 Dynamic libraries are required to deploy along with the binary executable that references functions within that library.  This is because a dynamically linked function is not copied inside the executable, like in the statically linked case.  Instead, the executable is referenced to a specific location within that .so or .dll file where the function's machine code resides.  In this manner, many different executables can be built upon a common dynamic library file without replicating the source code for each executable being built.
 
-To create a dynamically linked library with CMake, simply change `STATIC` to `SHARED` in the function `add_library()`.  You may then build the project as before in the static case.
+To create a dynamically linked library with CMake, simply change `STATIC` to `SHARED` in the function `add_library()`.  You may then build the project as before in the static library case.  In order to "see" the functions and objects provided within a shared object library, you can use the `nm` command as follows from the `build` directory.
 
+```
+nm -D --demangle lib/libfibonacci.so
+```
+
+For a more complete description of shared libraries in Linux, refer to [tldp.org](http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html, "The Linux Documentation Project").
+
+You can also look at any Linux machine and browse the folders `/usr/lib` to see a listing of numerous shared object (i.e., dynamically linked) libraries and `/usr/include` to see various header files and associated static libraries.
