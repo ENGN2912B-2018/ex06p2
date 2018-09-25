@@ -42,6 +42,12 @@ To create a dynamically linked library with CMake, simply change `STATIC` to `SH
 nm -D --demangle lib/libfibonacci.so
 ```
 
+If an executable is built with a dynamic library, the dependencies (i.e., required libraries) can be viewed by using the `ldd` command.  This command will show that libfibonacci.so is required by the executable in order to run.
+
+```
+ldd ex06p2
+```
+
 For a more complete description of shared libraries in Linux, refer to [tldp.org](http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html, "The Linux Documentation Project").
 
 You can also look at any Linux machine and browse the folders `/usr/lib` to see a listing of numerous shared object (i.e., dynamically linked) libraries and `/usr/include` to see various header files and associated static libraries.
