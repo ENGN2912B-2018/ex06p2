@@ -4,7 +4,7 @@ This example shows how to separate multiple functions into a separate library.  
 
 ## Generate a statically linked library
 
-Functions refererenced by a program to a statically linked library are resolved at compile time.  In Linux, static libraries contain the name `lib<name>.a`.  In Windows, static libraries are named `<name>.lib`.
+Functions referenced by a program to a statically linked library are resolved at compile time.  In Linux, static libraries contain the name `lib<name>.a`.  In Windows, static libraries are named `<name>.lib`.
 
 To build both the main executable and static library, run the following commands:
 
